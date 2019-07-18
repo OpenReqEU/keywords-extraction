@@ -1,0 +1,127 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This service is a copy of the service called similar-related-requirements-recommender. The main purpose of this component is to preprocess requirements and return their clean tokens.",
+    "version": "1.0.0",
+    "title": "Preprocess Requirements"
+  },
+  "host": "127.0.0.1:9406",
+  "basePath": "/preprocess-requirements",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/requirements": {
+      "post": {
+        "summary": "Preprocesses the input requirements",
+        "tags": [
+          "Main operations"
+        ],
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input requirements",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/Requirements"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "requirements": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/PreprocessedRequirements"
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "example": "Invalid Input"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "The requirements array is empty"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Requirements": {
+      "type": "object",
+      "properties": {
+        "requirements": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "UPC-1"
+              },
+              "title": {
+                "type": "string",
+                "example": "The swagger version is deprecated."
+              },
+              "description": {
+                "type": "string",
+                "example": "There is a new version available."
+              }
+            }
+          }
+        }
+      }
+    },
+    "PreprocessedRequirements": {
+      "type": "object",
+      "properties": {
+        "requirements": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
