@@ -1,0 +1,3 @@
+venv/
+application/corpora/__pycache__/
+.idea/
