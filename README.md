@@ -4,11 +4,11 @@ _This service was created as a result of the OpenReq project funded by the Europ
 
 ## Introduction
 
-The component is based in the preprocess used in the project called similar-related-requirements-recommender. The main purpose of this service is to preprocess input requirements and return the clean tokens.
+The component is based in the preprocess used in the project called similar-related-requirements-recommender. The main purpose of this service is to preprocess requirements and return their clean tokens.
 
 ## Technical description
 
-Next sections provide a general overview of the technical details of the similarity detection service.
+Next sections provide a general overview of the technical details of the service.
 
 ### Main functionalities
 

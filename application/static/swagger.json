@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "This service is a copy of the service called similar-related-requirements-recommender. The main purpose of this component is to preprocess requirements and return their clean tokens.",
+    "description": "The component is based in the preprocess used in the project called similar-related-requirements-recommender. The main purpose of this service is to preprocess requirements and return their clean tokens.",
     "version": "1.0.0",
     "title": "Preprocess Requirements"
   },
@@ -104,22 +104,25 @@
           "items": {
             "properties": {
               "id": {
-                "type": "string"
+                "type": "string",
+                "example": "UPC-1"
               },
-              "title": {
-                "type": "string"
+              "title_tokens": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "swagger"
+                }
               },
-              "description": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string"
+              "description_tokens": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "avail"
+                }
               }
             }
           }
-        },
-        "message": {
-          "type": "string"
         }
       }
     }
