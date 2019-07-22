@@ -19,6 +19,10 @@ paths:
       produces:
         - application/json
       parameters:
+        - name: stemmer
+          in: query
+          type: boolean
+          description: use stemmer?
         - in: body
           name: body
           description: Input requirements

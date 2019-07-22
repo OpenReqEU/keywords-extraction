@@ -21,6 +21,9 @@ app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 def create_task():
     if not request.json or 'requirements' not in request.json:
         abort(400, 'The input json is empty or it does not contain a requirements array')
+    stemmer = request.args.get('stemmer', '')
+    if stemmer != 'true' and stemmer != 'false':
+        abort(400, 'The stemmer parameter is missing')
     requirements = []
     for json_req in request.json['requirements']:
         if 'id' not in json_req:
@@ -35,7 +38,10 @@ def create_task():
         requirements.append(Requirement(id, title, description, ''))
     if len(requirements) == 0:
         abort(400, 'The input requirements array is empty')
-    preprocessed_requirements = preprocessing.preprocess_requirements(requirements, True, "en")
+    if stemmer == 'true':
+        preprocessed_requirements = preprocessing.preprocess_requirements(requirements, True)
+    else:
+        preprocessed_requirements = preprocessing.preprocess_requirements(requirements, False)
     result = {'requirements': []}
     for requirement in preprocessed_requirements:
         result['requirements'].append(encoder(requirement))
