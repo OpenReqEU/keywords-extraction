@@ -3,7 +3,7 @@ info:
   description: The component is based in the preprocess used in the project called similar-related-requirements-recommender. The main purpose of this service is to preprocess requirements and return their clean tokens.
   version: 1.0.0
   title: Preprocess Requirements
-host: '127.0.0.1:9406'
+host: '127.0.0.1:9006'
 basePath: /preprocess-requirements
 schemes:
   - http
