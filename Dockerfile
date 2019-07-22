@@ -9,7 +9,7 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 COPY . /usr/src/app
 
-EXPOSE 9006
+EXPOSE 9406
 
 ENTRYPOINT ["python3"]
 
