@@ -19,11 +19,11 @@ app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 
 @app.route('/preprocess-requirements/requirements', methods=['POST'])
 def create_task():
-    if not request.json or not 'requirements' in request.json:
+    if not request.json or 'requirements' not in request.json:
         abort(400, 'The input json is empty or it does not contain a requirements array')
     requirements = []
     for json_req in request.json['requirements']:
-        if not 'id' in json_req:
+        if 'id' not in json_req:
             abort(400, 'There is a requirement without id')
         id = json_req['id']
         title = ''
@@ -32,7 +32,9 @@ def create_task():
             title = json_req['title']
         if 'description' in json_req:
             description = json_req['description']
-        requirements.append(Requirement(id,title,description,''))
+        requirements.append(Requirement(id, title, description, ''))
+    if len(requirements) == 0:
+        abort(400, 'The input requirements array is empty')
     preprocessed_requirements = preprocessing.preprocess_requirements(requirements, True, "en")
     result = {'requirements': []}
     for requirement in preprocessed_requirements:

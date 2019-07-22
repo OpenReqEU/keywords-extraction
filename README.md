@@ -35,7 +35,7 @@ Steps to configure the service:
 Steps to run the service:
     
     - Activate the virtual environment: source env/bin/activate
-    - Run the service: python3 -m application.__main__
+    - Run the service: python3 -m application
     - Go to http://127.0.0.1:9406/swagger/ to see the swagger generated. You can use the component through the swagger or through http connections to the endpoints indicated in the swagger documentation.
 
 ### How to use it

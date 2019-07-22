@@ -150,10 +150,6 @@ def _remove_english_abbreviations(requirements):
 
 
 def preprocess_requirements(requirements, enable_stemming=False, lang="en"):
-    _logger.info("Preprocessing requirements")
-    assert(isinstance(requirements, list))
-    assert(len(requirements) > 0)
-
     _to_lower_case(requirements)
     if lang == "de":
         _replace_german_umlauts(requirements)
