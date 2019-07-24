@@ -17,6 +17,16 @@ SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
 app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 
 
+def encoder(object):
+    if isinstance(object, Requirement):
+        aux = object.__dict__
+        new_dict = dict()
+        new_dict['id'] = aux['id']
+        new_dict['title_tokens'] = aux['title_tokens']
+        new_dict['description_tokens'] = aux['description_tokens']
+        return new_dict
+
+
 @app.route('/preprocess-requirements/requirements', methods=['POST'])
 def create_task():
     if not request.json or 'requirements' not in request.json:
@@ -55,13 +65,3 @@ def bad_request(error):
 
 if __name__ == '__main__':
     app.run(port=9406,host='0.0.0.0',debug=False)
-
-
-def encoder(object):
-    if isinstance(object, Requirement):
-        aux = object.__dict__
-        new_dict = dict()
-        new_dict['id'] = aux['id']
-        new_dict['title_tokens'] = aux['title_tokens']
-        new_dict['description_tokens'] = aux['description_tokens']
-        return new_dict
