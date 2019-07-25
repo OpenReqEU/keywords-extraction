@@ -3,10 +3,10 @@
   "info": {
     "description": "The component is based in the preprocess used in the project called similar-related-requirements-recommender. The main purpose of this service is to preprocess requirements and return their clean tokens.",
     "version": "1.0.0",
-    "title": "Preprocess Requirements"
+    "title": "Keywords extraction"
   },
   "host": "217.172.12.199:9406",
-  "basePath": "/preprocess-requirements",
+  "basePath": "/keywords-extraction",
   "schemes": [
     "http"
   ],

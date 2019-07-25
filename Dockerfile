@@ -13,4 +13,4 @@ EXPOSE 9406
 
 ENTRYPOINT ["python3"]
 
-CMD ["-m", "application", "--debug=False", "--host=0.0.0.0"]
+CMD ["-m", "application", "--debug=False", "--host=0.0.0.0", "threaded=True"]

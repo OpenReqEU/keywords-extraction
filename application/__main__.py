@@ -11,7 +11,7 @@ SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
     SWAGGER_URL,
     API_URL,
     config={
-        'app_name': "Preprocess-Requirements"
+        'app_name': "keywords-extraction"
     }
 )
 app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
@@ -27,7 +27,7 @@ def encoder(object):
         return new_dict
 
 
-@app.route('/preprocess-requirements/requirements', methods=['POST'])
+@app.route('/keywords-extraction/requirements', methods=['POST'])
 def create_task():
     if not request.json or 'requirements' not in request.json:
         abort(400, 'The input json is empty or it does not contain a requirements array')
@@ -64,4 +64,4 @@ def bad_request(error):
 
 
 if __name__ == '__main__':
-    app.run(port=9406,host='0.0.0.0',debug=False)
+    app.run(port=9406, host='0.0.0.0', debug=False, threaded=True)
