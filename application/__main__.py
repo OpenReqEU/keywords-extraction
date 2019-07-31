@@ -41,9 +41,9 @@ def create_task():
         id = json_req['id']
         title = ''
         description = ''
-        if 'title' in json_req:
+        if 'title' in json_req and json_req['title'] is not None:
             title = json_req['title']
-        if 'description' in json_req:
+        if 'description' in json_req and json_req['description'] is not None:
             description = json_req['description']
         requirements.append(Requirement(id, title, description, ''))
     if len(requirements) == 0:
