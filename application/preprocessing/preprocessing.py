@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
-import os
-import csv
 from application.entities.requirement import Requirement
-from application.util import helper
 from functools import reduce
 from application.preprocessing import tokenizer
 from application.preprocessing import filters

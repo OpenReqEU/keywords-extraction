@@ -28,7 +28,7 @@ def encoder(object):
 
 
 @app.route('/keywords-extraction/requirements', methods=['POST'])
-def create_task():
+def preprocess():
     if not request.json or 'requirements' not in request.json:
         abort(400, 'The input json is empty or it does not contain a requirements array')
     stemmer = request.args.get('stemmer', '')
@@ -64,4 +64,4 @@ def bad_request(error):
 
 
 if __name__ == '__main__':
-    app.run(port=9406, host='0.0.0.0', debug=False, threaded=True)
+    app.run(port=9406, debug=False, threaded=True)

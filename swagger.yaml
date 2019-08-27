@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  description: The component is based in the preprocess used in the project called similar-related-requirements-recommender. The main purpose of this service is to preprocess requirements and return their clean tokens.
+  description: The component is based in the keywords extraction process used in the OpenReq project called similar-related-requirements-recommender (https://github.com/OpenReqEU/similar-related-requirements-recommender). The main purpose of this service is to preprocess requirements and to obtain the keywords that represent each one.
   version: 1.0.0
   title: Preprocess Requirements
 host: '127.0.0.1:9406'
@@ -10,10 +10,10 @@ schemes:
 paths:
   /requirements:
     post:
-      summary: Preprocesses the input requirements
+      summary: Preprocesses and extracts the keywords of the input requirements.
+      description: Preprocesses and extracts the keywords of the input requirements. The title keywords are returned in the 'title_tokens' field and the description tokens in the 'description_tokens' field of the JSON.
       tags:
         - Main operations
-      description: ''
       consumes:
         - application/json
       produces:
@@ -22,7 +22,7 @@ paths:
         - name: stemmer
           in: query
           type: boolean
-          description: use stemmer?
+          description: Whether to use stemming or not
         - in: body
           name: body
           description: Input requirements
