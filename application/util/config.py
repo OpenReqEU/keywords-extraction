@@ -1,2 +1,7 @@
+import json
+
+
 def get_ip():
-    return '0.0.0.0'
+    with open('config.json') as json_file:
+        data = json.load(json_file)
+        return data['ip']
