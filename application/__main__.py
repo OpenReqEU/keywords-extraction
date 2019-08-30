@@ -64,4 +64,4 @@ def bad_request(error):
 
 
 if __name__ == '__main__':
-    app.run(port=9406, debug=False, threaded=True)
+    app.run(port=9406, host='0.0.0.0', debug=False, threaded=True)

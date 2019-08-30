@@ -2,9 +2,9 @@ swagger: '2.0'
 info:
   description: The component is based in the keywords extraction process used in the OpenReq project called similar-related-requirements-recommender (https://github.com/OpenReqEU/similar-related-requirements-recommender). The main purpose of this service is to preprocess requirements and to obtain the keywords that represent each one.
   version: 1.0.0
-  title: Preprocess Requirements
-host: '127.0.0.1:9406'
-basePath: /preprocess-requirements
+  title: Keywords Extraction
+host: '217.172.12.199:9406'
+basePath: /keywords-extraction
 schemes:
   - http
 paths:
@@ -24,7 +24,7 @@ paths:
           type: boolean
           description: Whether to use stemming or not
         - in: body
-          name: body
+          name: bodya
           description: Input requirements
           required: true
           schema:

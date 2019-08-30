@@ -3,10 +3,10 @@
   "info": {
     "description": "The component is based in the keywords extraction process used in the OpenReq project called similar-related-requirements-recommender (https://github.com/OpenReqEU/similar-related-requirements-recommender). The main purpose of this service is to preprocess requirements and to obtain the keywords that represent each one.",
     "version": "1.0.0",
-    "title": "Preprocess Requirements"
+    "title": "Keywords Extraction"
   },
-  "host": "127.0.0.1:9406",
-  "basePath": "/preprocess-requirements",
+  "host": "217.172.12.199:9406",
+  "basePath": "/keywords-extraction",
   "schemes": [
     "http"
   ],
@@ -33,7 +33,7 @@
           },
           {
             "in": "body",
-            "name": "body",
+            "name": "bodya",
             "description": "Input requirements",
             "required": true,
             "schema": {

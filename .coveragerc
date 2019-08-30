@@ -1,6 +1,0 @@
-[run]
-omit = 
-[html]
-directory = application/test/coverage-reports/html
-[xml]
-output = application/test/coverage-reports/coverage.xml
