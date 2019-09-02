@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+#
+# Date: 02/09/2019
+# Filename: requirement.py
+# Copied from project called similar-related-requirements-recommender
+# (https://github.com/OpenReqEU/similar-related-requirements-recommender)
+#
 
 import logging
 

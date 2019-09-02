@@ -1,4 +1,13 @@
 # -*- coding: utf-8 -*-
+#
+# Date: 02/09/2019
+# Filename: preprocessing.py
+# Partially copied from project called similar-related-requirements-recommender
+# (https://github.com/OpenReqEU/similar-related-requirements-recommender)
+# Changelog:
+#   - Removed unused methods (_remove_german_abbreviations, _replace_german_umlauts, replace_adjacent_token_synonyms_and_remove_adjacent_stopwords)
+#   - Removed not necessary assertions
+#
 
 import logging
 from application.entities.requirement import Requirement

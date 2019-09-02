@@ -1,4 +1,25 @@
 # -*- coding: utf-8 -*-
+#
+# Date: 02/09/2019
+# Filename: requirement.py
+# Partially copied from project called similar-related-requirements-recommender
+# (https://github.com/OpenReqEU/similar-related-requirements-recommender)
+# Changelog:
+#   - Removed unused methods
+#       - replace_german_umlaut
+#       - merge_two_dicts
+#       - setup_logging
+#       - make_dir_if_not_exists
+#       - error
+#       - is_complete_data_set
+#       - cache_exists_for_preprocessed_tags_and_posts
+#       - write_preprocessed_tags_and_posts_to_cache
+#       - load_preprocessed_tags_and_posts_from_cache
+#       - compute_hash_of_file
+#       - clear_tag_predictions_for_posts
+#       - add_coloring_to_emit_windows
+#       - add_coloring_to_emit_ansi
+#
 
 import os
 
