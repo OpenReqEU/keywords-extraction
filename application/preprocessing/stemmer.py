@@ -2,8 +2,10 @@
 #
 # Date: 02/09/2019
 # Filename: stemmer.py
-# Copied from project called similar-related-requirements-recommender
+# Partially copied from project called similar-related-requirements-recommender
 # (https://github.com/OpenReqEU/similar-related-requirements-recommender)
+# Changelog:
+#   - Changed logger.info to logger.debug
 #
 
 import logging
@@ -18,7 +20,7 @@ nltk.data.path = [os.path.join(helper.APP_PATH, "corpora", "nltk_data")]
 
 
 def porter_stemmer(posts):
-    _logger.info("Stemming for posts' tokens")
+    _logger.debug("Stemming for posts' tokens")
     porter = PorterStemmer()
 
     for post in posts:

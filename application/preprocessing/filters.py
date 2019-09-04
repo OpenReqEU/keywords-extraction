@@ -2,8 +2,10 @@
 #
 # Date: 02/09/2019
 # Filename: filters.py
-# Copied from project called similar-related-requirements-recommender
+# Partially copied from project called similar-related-requirements-recommender
 # (https://github.com/OpenReqEU/similar-related-requirements-recommender)
+# Changelog:
+#   - Changed logger.info to logger.debug
 #
 
 import logging
@@ -29,7 +31,7 @@ KNOWN_FILE_EXTENSIONS_MAP = {
 
 
 def filter_tokens(requirements, important_key_words):
-    _logger.info("Filter posts' tokens")
+    _logger.debug("Filter posts' tokens")
     regex_url = re.compile(
         r'^(?:http|ftp)s?://'  # http:// https:// ftp:// ftps://
         r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'  # domain...

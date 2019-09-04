@@ -2,8 +2,10 @@
 #
 # Date: 02/09/2019
 # Filename: stopwords.py
-# Copied from project called similar-related-requirements-recommender
+# Partially copied from project called similar-related-requirements-recommender
 # (https://github.com/OpenReqEU/similar-related-requirements-recommender)
+# Changelog:
+#   - Changed logger.info to logger.debug
 #
 
 import os
@@ -15,7 +17,7 @@ _logger = logging.getLogger(__name__)
 
 
 def remove_stopwords(requirements, lang="en"):
-    _logger.info("Removing stop-words from requirement' tokens")
+    _logger.debug("Removing stop-words from requirement' tokens")
     stop_words_file_path = os.path.join(helper.APP_PATH, 'corpora', 'stopwords_' + lang)
     data_set_stop_words = set()
     if os.path.isfile(stop_words_file_path):

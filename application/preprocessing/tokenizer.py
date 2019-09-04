@@ -2,8 +2,10 @@
 #
 # Date: 02/09/2019
 # Filename: tokenizer.py
-# Copied from project called similar-related-requirements-recommender
+# Partially copied from project called similar-related-requirements-recommender
 # (https://github.com/OpenReqEU/similar-related-requirements-recommender)
+# Changelog:
+#   - Changed logger.info to logger.debug
 #
 
 import re
@@ -46,7 +48,7 @@ def tokenize_requirements(requirements, important_key_words, lang="en"):
               unit-testcases for this python-module (see: "tests"-folder of this project)
 
     """
-    _logger.info("Tokenizing requirements")
+    _logger.debug("Tokenizing requirements")
     assert(isinstance(requirements, list))
     assert(isinstance(important_key_words, list))
     sorted_important_key_words_to_keep = sorted(important_key_words, reverse=True)

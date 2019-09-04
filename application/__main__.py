@@ -3,6 +3,7 @@ from flask_swagger_ui import get_swaggerui_blueprint
 from application.preprocessing import preprocessing
 from application.entities.requirement import Requirement
 from application.util.config import get_ip
+import logging
 
 app = Flask(__name__)
 
@@ -66,4 +67,5 @@ def bad_request(error):
 
 if __name__ == '__main__':
     ip = get_ip()
+    logging.basicConfig(filename='keywords-extraction.log', level=logging.INFO)
     app.run(port=9406, host=ip, debug=False, threaded=True)
