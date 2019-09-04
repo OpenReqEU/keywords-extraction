@@ -67,5 +67,5 @@ def bad_request(error):
 
 if __name__ == '__main__':
     ip = get_ip()
-    logging.basicConfig(filename='keywords-extraction.log', level=logging.INFO)
+    logging.basicConfig(filename='logs/keywords-extraction.log', level=logging.INFO)
     app.run(port=9406, host=ip, debug=False, threaded=True)
