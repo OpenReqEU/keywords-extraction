@@ -6,7 +6,7 @@
 # (https://github.com/OpenReqEU/similar-related-requirements-recommender)
 # Changelog:
 #   - Changed logger.info to logger.debug
-#
+#   - Added decoding from bytes to string when reading the stopwords file
 
 import os
 import logging
@@ -23,7 +23,7 @@ def remove_stopwords(requirements, lang="en"):
     if os.path.isfile(stop_words_file_path):
         with open(stop_words_file_path, 'rb') as f:
             for line in f:
-                data_set_stop_words.add(line.strip())
+                data_set_stop_words.add(line.strip().decode("utf-8"))
 
     stop_words = data_set_stop_words
 
