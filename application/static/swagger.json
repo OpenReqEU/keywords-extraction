@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "The component is based in the keywords extraction process used in the OpenReq project called similar-related-requirements-recommender (https://github.com/OpenReqEU/similar-related-requirements-recommender). The main purpose of this service is to preprocess requirements and to obtain the keywords that represent each one.",
-    "version": "1.0.0",
+    "description": "The component is based in the keywords extraction process used in the OpenReq project called [similar-related-requirements-recommender](https://github.com/OpenReqEU/similar-related-requirements-recommender). The main purpose of this service is to preprocess requirements and to obtain the keywords that represent each one.",
+    "version": "1.0",
     "title": "Keywords Extraction"
   },
   "host": "localhost:9406",
@@ -29,8 +29,7 @@
             "name": "stemmer",
             "in": "query",
             "type": "boolean",
-            "description": "Whether to use stemming or not",
-            "required": true
+            "description": "Whether to use stemming or not"
           },
           {
             "in": "body",
@@ -38,7 +37,6 @@
             "description": "Input requirements",
             "required": true,
             "schema": {
-              "type": "object",
               "$ref": "#/definitions/Requirements"
             }
           }
