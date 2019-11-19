@@ -29,7 +29,8 @@
             "name": "stemmer",
             "in": "query",
             "type": "boolean",
-            "description": "Whether to use stemming or not"
+            "description": "Whether to use stemming or not",
+            "required": true
           },
           {
             "in": "body",

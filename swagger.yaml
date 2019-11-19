@@ -23,6 +23,7 @@ paths:
           in: query
           type: boolean
           description: Whether to use stemming or not
+          required: true
         - in: body
           name: body
           description: Input requirements
