@@ -7,7 +7,7 @@ import logging
 
 app = Flask(__name__)
 
-SWAGGER_URL = '/swagger'
+SWAGGER_URL = '/swagger-ui.html'
 API_URL = '/static/swagger.json'
 SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
     SWAGGER_URL,
@@ -34,8 +34,10 @@ def preprocess():
     if not request.json or 'requirements' not in request.json:
         abort(400, 'The input json is empty or it does not contain a requirements array')
     stemmer = request.args.get('stemmer', '')
-    if stemmer != 'true' and stemmer != 'false':
+    if stemmer == "":
         abort(400, 'The stemmer parameter is missing')
+    if stemmer != 'true' and stemmer != 'false':
+        abort(400, 'The stemmer parameter is not correct')
     requirements = []
     for json_req in request.json['requirements']:
         if 'id' not in json_req:

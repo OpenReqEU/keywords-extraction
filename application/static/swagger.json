@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "title": "Keywords Extraction"
   },
-  "host": "217.172.12.199:9406",
+  "host": "localhost:9406",
   "basePath": "/keywords-extraction",
   "schemes": [
     "http"
@@ -29,11 +29,12 @@
             "name": "stemmer",
             "in": "query",
             "type": "boolean",
-            "description": "Whether to use stemming or not"
+            "description": "Whether to use stemming or not",
+            "required": true
           },
           {
             "in": "body",
-            "name": "bodya",
+            "name": "body",
             "description": "Input requirements",
             "required": true,
             "schema": {
