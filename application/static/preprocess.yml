@@ -1,0 +1,79 @@
+Preprocesses and extracts the keywords of the input requirements.
+Preprocesses and extracts the keywords of the input requirements. The title keywords are returned in the 'title_tokens' field and the description tokens in the 'description_tokens' field of the JSON.
+---
+tags:
+    - Main operations
+consumes:
+    - application/json
+produces:
+    - application/json
+parameters:
+  - name: stemmer
+    in: query
+    type: boolean
+    description: Whether to use stemming or not
+    required: true
+  - in: body
+    name: body
+    description: Input requirements
+    required: true
+    schema:
+      $ref: '#/definitions/Requirements'
+definitions:
+  Requirements:
+    type: object
+    properties:
+      requirements:
+        type: array
+        items:
+          properties:
+            id:
+              type: string
+              example: UPC-1
+            title:
+              type: string
+              example: The swagger version is deprecated.
+            description:
+              type: string
+              example: There is a new version available.
+  PreprocessedRequirements:
+    type: object
+    properties:
+      requirements:
+        type: array
+        items:
+          properties:
+            id:
+              type: string
+              example: UPC-1
+            title_tokens:
+              type: array
+              items:
+                type: string
+                example: swagger
+            description_tokens:
+              type: array
+              items:
+                type: string
+                example: avail
+responses:
+  '200':
+      description: ok
+      schema:
+        type: object
+        properties:
+          requirements:
+            type: array
+            items:
+              $ref: '#/definitions/PreprocessedRequirements'
+  '405':
+    description: Invalid input
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Invalid Input
+        message:
+          type: string
+          example: The requirements array is empty

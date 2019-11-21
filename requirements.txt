@@ -1,4 +1,4 @@
 flask
 nltk
 six
-flask_swagger_ui
+flasgger

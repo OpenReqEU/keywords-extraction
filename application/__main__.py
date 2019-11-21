@@ -1,5 +1,5 @@
 from flask import Flask, request, abort
-from flask_swagger_ui import get_swaggerui_blueprint
+from flasgger import Swagger, swag_from
 from application.preprocessing import preprocessing
 from application.entities.requirement import Requirement
 from application.util.config import get_ip
@@ -7,16 +7,40 @@ import logging
 
 app = Flask(__name__)
 
-SWAGGER_URL = '/swagger-ui.html'
-API_URL = '/static/swagger.json'
-SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
-    SWAGGER_URL,
-    API_URL,
-    config={
-        'app_name': "keywords-extraction"
-    }
-)
-app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
+swagger_config = {
+    "headers": [
+    ],
+    "specs": [
+        {
+            "endpoint": 'apispec_1',
+            "route": '/apispec_1.json',
+            "rule_filter": lambda rule: True,  # all in
+            "model_filter": lambda tag: True,  # all in
+        }
+    ],
+    "static_url_path": "/flasgger_static",
+    # "static_folder": "static",  # must be set by user
+    "swagger_ui": True,
+    "specs_route": "/swagger-ui.html/",
+    'uiversion': 3
+}
+
+template = {
+  "swagger": "2.0",
+  "info": {
+    "description": "The component is based in the keywords extraction process used in the OpenReq project called [similar-related-requirements-recommender](https://github.com/OpenReqEU/similar-related-requirements-recommender). The main purpose of this service is to preprocess requirements and to obtain the keywords that represent each one.",
+    "version": "1.0",
+    "title": "Keywords Extraction",
+    "uiversion": 3
+  },
+  "host": "localhost:9406",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ]
+}
+
+swagger = Swagger(app, template=template, config=swagger_config)
 
 
 def encoder(object):
@@ -30,6 +54,7 @@ def encoder(object):
 
 
 @app.route('/keywords-extraction/requirements', methods=['POST'])
+@swag_from('./static/preprocess.yml')
 def preprocess():
     if not request.json or 'requirements' not in request.json:
         abort(400, 'The input json is empty or it does not contain a requirements array')
