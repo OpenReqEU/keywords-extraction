@@ -33,10 +33,10 @@ template = {
     "title": "Keywords Extraction",
     "uiversion": 3
   },
-  "host": "localhost:9406",
+  "host": "api.openreq.eu/keywords-extraction",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ]
 }
 
