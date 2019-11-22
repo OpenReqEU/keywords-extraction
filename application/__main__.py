@@ -13,16 +13,15 @@ swagger_config = {
     "specs": [
         {
             "endpoint": 'apispec_1',
-            "route": '/apispec_1.json',
+            "route": '/keywords-extraction/apispec_1.json',
             "rule_filter": lambda rule: True,  # all in
             "model_filter": lambda tag: True,  # all in
         }
     ],
-    "static_url_path": "/flasgger_static",
+    "static_url_path": "/keywords-extraction/flasgger_static",
     # "static_folder": "static",  # must be set by user
     "swagger_ui": True,
-    "specs_route": "/swagger-ui.html/",
-    'uiversion': 3
+    "specs_route": "/keywords-extraction/swagger-ui.html/"
 }
 
 template = {
@@ -31,7 +30,6 @@ template = {
     "description": "The component is based in the keywords extraction process used in the OpenReq project called [similar-related-requirements-recommender](https://github.com/OpenReqEU/similar-related-requirements-recommender). The main purpose of this service is to preprocess requirements and to obtain the keywords that represent each one.",
     "version": "1.0",
     "title": "Keywords Extraction",
-    "uiversion": 3
   },
   "host": "localhost:9406",
   "basePath": "/",
