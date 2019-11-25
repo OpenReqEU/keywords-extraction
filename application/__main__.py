@@ -13,7 +13,7 @@ swagger_config = {
     "specs": [
         {
             "endpoint": 'apispec_1',
-            "route": '/apispec_1.json',
+            "route": '/keywords-extraction/apispec_1.json',
             "rule_filter": lambda rule: True,  # all in
             "model_filter": lambda tag: True,  # all in
         }
@@ -21,7 +21,7 @@ swagger_config = {
     "static_url_path": "/keywords-extraction/flasgger_static",
     # "static_folder": "static",  # must be set by user
     "swagger_ui": True,
-    "specs_route": "/swagger-ui.html/"
+    "specs_route": "/keywords-extraction/swagger-ui.html/"
 }
 
 template = {
