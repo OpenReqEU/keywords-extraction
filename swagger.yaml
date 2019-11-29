@@ -1,90 +1,90 @@
-swagger: '2.0'
+basePath: /
+definitions:
+  PreprocessedRequirements:
+    properties:
+      requirements:
+        items:
+          properties:
+            description_tokens:
+              items:
+                example: avail
+                type: string
+              type: array
+            id:
+              example: UPC-1
+              type: string
+            title_tokens:
+              items:
+                example: swagger
+                type: string
+              type: array
+        type: array
+    type: object
+  Requirements:
+    properties:
+      requirements:
+        items:
+          properties:
+            description:
+              example: There is a new version available.
+              type: string
+            id:
+              example: UPC-1
+              type: string
+            title:
+              example: The swagger version is deprecated.
+              type: string
+        type: array
+    type: object
+host: api.openreq.eu
 info:
-  description: The component is based in the keywords extraction process used in the OpenReq project called [similar-related-requirements-recommender](https://github.com/OpenReqEU/similar-related-requirements-recommender). The main purpose of this service is to preprocess requirements and to obtain the keywords that represent each one.
-  version: '1.0'
+  description: 'The component is based in the keywords extraction process used in the OpenReq project called [similar-related-requirements-recommender](https://github.com/OpenReqEU/similar-related-requirements-recommender). The main purpose of this service is to preprocess requirements and to obtain the keywords that represent each one.'
   title: Keywords Extraction
-host: 'localhost:9406'
-basePath: /keywords-extraction
-schemes:
-  - http
+  version: '1.0'
 paths:
-  /requirements:
+  /keywords-extraction/requirements:
     post:
-      summary: Preprocesses and extracts the keywords of the input requirements.
-      description: Preprocesses and extracts the keywords of the input requirements. The title keywords are returned in the 'title_tokens' field and the description tokens in the 'description_tokens' field of the JSON.
-      tags:
-        - Main operations
       consumes:
         - application/json
-      produces:
-        - application/json
+      description: Preprocesses and extracts the keywords of the input requirements. The title keywords are returned in the 'title_tokens' field and the description tokens in the 'description_tokens' field of the JSON.<br/>
       parameters:
-        - name: stemmer
+        - description: Whether to use stemming or not
           in: query
-          type: boolean
-          description: Whether to use stemming or not
+          name: stemmer
           required: true
-        - in: body
+          type: boolean
+        - description: Input requirements
+          in: body
           name: body
-          description: Input requirements
           required: true
           schema:
             $ref: '#/definitions/Requirements'
+      produces:
+        - application/json
       responses:
         '200':
           description: ok
           schema:
-            type: object
             properties:
               requirements:
-                type: array
                 items:
                   $ref: '#/definitions/PreprocessedRequirements'
+                type: array
+            type: object
         '405':
           description: Invalid input
           schema:
-            type: object
             properties:
               error:
-                type: string
                 example: Invalid Input
+                type: string
               message:
-                type: string
                 example: The requirements array is empty
-definitions:
-  Requirements:
-    type: object
-    properties:
-      requirements:
-        type: array
-        items:
-          properties:
-            id:
-              type: string
-              example: UPC-1
-            title:
-              type: string
-              example: The swagger version is deprecated.
-            description:
-              type: string
-              example: There is a new version available.
-  PreprocessedRequirements:
-    type: object
-    properties:
-      requirements:
-        type: array
-        items:
-          properties:
-            id:
-              type: string
-              example: UPC-1
-            title_tokens:
-              type: array
-              items:
                 type: string
-                example: swagger
-            description_tokens:
-              type: array
-              items:
-                type: string
-                example: avail
+            type: object
+      summary: Preprocesses and extracts the keywords of the input requirements.
+      tags:
+        - Main operations
+schemes:
+  - https
+swagger: '2.0'
