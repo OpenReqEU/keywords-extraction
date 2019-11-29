@@ -39,7 +39,7 @@ Steps to run the service:
 
 The service expects a JSON with OpenReqJson format.
 
-See Api details [here](http://217.172.12.199:9406/swagger-ui.html/)
+See Api details [here](https://api.openreq.eu/keywords-extraction/swagger-ui.html/)
 
 ## How to contribute
 
