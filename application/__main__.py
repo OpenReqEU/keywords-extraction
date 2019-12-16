@@ -27,7 +27,7 @@ swagger_config = {
 template = {
   "swagger": "2.0",
   "info": {
-    "description": "The component is based in the keywords extraction process used in the OpenReq project called [similar-related-requirements-recommender](https://github.com/OpenReqEU/similar-related-requirements-recommender). The main purpose of this service is to preprocess requirements and to obtain the keywords that represent each one.",
+    "description": "The component is based on the keywords extraction process used in the OpenReq project called [similar-related-requirements-recommender](https://github.com/OpenReqEU/similar-related-requirements-recommender). The main purpose of this service is to preprocess requirements and to obtain the keywords that represent each one.",
     "version": "1.0",
     "title": "Keywords Extraction",
   },
