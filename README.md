@@ -4,7 +4,7 @@ _This service was created as a result of the OpenReq project funded by the Europ
 
 ## Introduction
 
-The component is based in the preprocess used in the project called [similar-related-requirements-recommender](https://github.com/OpenReqEU/similar-related-requirements-recommender). The main purpose of this service is to preprocess requirements and return their clean tokens.
+The component is based on the preprocess used on the project called [similar-related-requirements-recommender](https://github.com/OpenReqEU/similar-related-requirements-recommender). The main purpose of this service is to preprocess requirements and return their clean tokens.
 
 ## Technical description
 
@@ -15,9 +15,6 @@ Next sections provide a general overview of the technical details of the service
 There is only one method that returns the clean tokens of the input requirements. Check API details in the swagger documentation.
 
 The API uses UTF-8 charset. Also, it uses the OpenReq format for input JSONs.
-
-
-### Used technologies
 
 ### How to install
 

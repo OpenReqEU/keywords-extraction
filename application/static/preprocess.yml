@@ -1,5 +1,5 @@
 Preprocesses and extracts the keywords of the input requirements.
-Preprocesses and extracts the keywords of the input requirements. The title keywords are returned in the 'title_tokens' field and the description tokens in the 'description_tokens' field of the JSON.
+Preprocesses and extracts the keywords of the input requirements. The title keywords are returned in the 'title_tokens' field of the JSON and the description tokens in the 'description_tokens' field.
 ---
 tags:
     - Main operations
